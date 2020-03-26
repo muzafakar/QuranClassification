@@ -36,5 +36,4 @@ interface VerseDao {
 
     @Query("SELECT * FROM verse WHERE akhirat=1")
     fun getAlamAkhiratVerses(): LiveData<List<Verse>>
-
 }

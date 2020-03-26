@@ -6,6 +6,7 @@ package com.muzafakar.alquran.model
 enum class TopicEnum {
     AQIDAH,
     AKHLAK,
+    SYARIAH,
     ILMU,
     KISAH,
     DUNIA,

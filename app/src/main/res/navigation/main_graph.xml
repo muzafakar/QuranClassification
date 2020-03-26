@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_graph.xml">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph.xml"
+    app:startDestination="@id/splashFragment">
 
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.muzafakar.alquran.view.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.muzafakar.alquran.view.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_chapterFragment"
+            app:destination="@id/chapterFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_topicFragment"
+            app:destination="@id/topicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chapterFragment"
+        android:name="com.muzafakar.alquran.view.ChapterFragment"
+        android:label="fragment_chapter"
+        tools:layout="@layout/fragment_chapter" >
+        <action
+            android:id="@+id/action_chapterFragment_to_verseFragment"
+            app:destination="@id/verseFragment" />
+        <argument
+            android:name="chapterId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/topicFragment"
+        android:name="com.muzafakar.alquran.view.TopicFragment"
+        android:label="fragment_topic"
+        tools:layout="@layout/fragment_topic" >
+        <action
+            android:id="@+id/action_topicFragment_to_verseFragment"
+            app:destination="@id/verseFragment" />
+        <argument
+            android:name="topic"
+            app:argType="com.muzafakar.alquran.model.Topic" />
+    </fragment>
+    <fragment
+        android:id="@+id/verseFragment"
+        android:name="com.muzafakar.alquran.view.VerseFragment"
+        android:label="fragment_verse"
+        tools:layout="@layout/fragment_verse" >
+        <argument
+            android:name="verseId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

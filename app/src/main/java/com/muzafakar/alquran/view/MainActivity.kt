@@ -1,7 +1,8 @@
-package com.muzafakar.alquran
+package com.muzafakar.alquran.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.muzafakar.alquran.R
 
 class MainActivity : AppCompatActivity() {
 

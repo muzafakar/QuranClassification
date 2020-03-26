@@ -12,4 +12,7 @@ import com.muzafakar.alquran.model.Topic
 interface TopicDao {
     @Query("SELECT * FROM topic")
     fun getTopics(): LiveData<List<Topic>>
+
+    @Query("SELECT * FROM topic WHERE id= :topicId")
+    fun getTopic(topicId: Int): LiveData<Topic>
 }
