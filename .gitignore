@@ -14,4 +14,5 @@
 .cxx
 
 .idea/
-.db
+app/src/main/assets/database/app.db
+app/src/main/assets/database/main.db
