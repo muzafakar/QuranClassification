@@ -1,6 +1,7 @@
 package com.muzafakar.alquran.view.viewholder
 
 import android.content.Context
+import android.view.View
 import com.google.android.material.chip.Chip
 import com.muzafakar.alquran.R
 import com.muzafakar.alquran.model.Verse
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.item_verse.view.*
 
 class VerseViewHolder(
         private val verse: Verse,
+        private val isShowTopic: Boolean,
         private val click: (Verse) -> Unit
 ) : Item() {
     override fun getLayout(): Int = R.layout.item_verse
@@ -19,9 +21,14 @@ class VerseViewHolder(
             setOnClickListener { click(verse) }
 
             tvTranslation.text = verse.translation
-            cgTopic.removeAllViews()
-            generateTopicChips(this.context).forEach {
-                cgTopic.addView(it)
+            if (isShowTopic) {
+                cgTopic.visibility = View.VISIBLE
+                cgTopic.removeAllViews()
+                generateTopicChips(this.context).forEach {
+                    cgTopic.addView(it)
+                }
+            } else {
+                cgTopic.visibility = View.GONE
             }
         }
     }

@@ -10,14 +10,21 @@ class PrefManager(context: Context) {
 
     companion object {
         private const val TOPIC_ASSET = "TOPIC_ASSET"
+        private const val SHOW_TOPIC = "SHOW_TOPIC"
     }
+
+    var isShowTopic: Boolean
+        get() = sp.getBoolean(SHOW_TOPIC, true)
+        set(value) {
+            spe.putBoolean(SHOW_TOPIC, value).commit()
+        }
 
     var topicAsset: List<String>
         get() {
             return try {
                 val tmp: List<String>? = Gson().fromJson(
-                    sp.getString(TOPIC_ASSET, ""),
-                    object : TypeToken<List<String>?>() {}.type
+                        sp.getString(TOPIC_ASSET, ""),
+                        object : TypeToken<List<String>?>() {}.type
                 )
                 tmp.orEmpty()
             } catch (ex: Exception) {
